@@ -4,5 +4,6 @@ public class HolaDocker {
         System.out.println("Practica 02 - Entrega continua");
         System.out.println("Alumno: Paul Villegas Martinez");
         System.out.println("Contenedor ejecutado correctamente");
+        System.out.println("Nueva version desplegada automaticamente");
     }
 }
