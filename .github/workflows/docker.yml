@@ -1,0 +1,25 @@
+name: Entrega continua con Docker
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Construir imagen Docker
+        run: docker build -t entrega-continua .
+
+      - name: Desplegar contenedor
+        run: docker run --name aplicacion entrega-continua
+
+      - name: Verificar contenedor
+        run: |
+          docker inspect aplicacion
+          docker logs aplicacion
